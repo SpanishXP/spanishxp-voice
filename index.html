@@ -1,44 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>SpanishXP Voice</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpanishXP Voice Teacher</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>¡Bienvenido a SpanishXP Voice!</h1>
-  <p>Tu asistente de español con voz clonada ya está en camino...</p>
+  <header>
+    <img src="avatar.png" alt="Avatar de Germán" class="avatar" />
+    <h1>SpanishXP</h1>
+    <p class="tagline">Soy Germán, tu profe de Español.</p>
+  </header>
 
-  <form id="voiceForm">
-    <input type="text" id="textInput" placeholder="Escribí algo..." required />
-    <button type="submit">Reproducir</button>
-  </form>
+  <main>
+    <div id="chat-container">
+      <div id="chat-box"></div>
+      <div class="input-row">
+        <input type="text" id="user-input" placeholder="Escribí o hablá..." />
+        <button id="voice-btn">🎤</button>
+        <button id="send-btn">Enviar</button>
+      </div>
+    </div>
+  </main>
 
-  <audio id="audioPlayer" controls></audio>
+  <footer>
+    <p>SpanishXP — Experience, Platform, Power... por el Pela 😉</p>
+  </footer>
 
   <script>
-    const form = document.getElementById('voiceForm');
-    const audio = document.getElementById('audioPlayer');
+    const ELEVEN_API_KEY = 'YOUR_ELEVEN_API_KEY';
+    const ABACUS_API_KEY = 's2_72f2032cfb67483d9c3193d126262d6b'; // ⚠️ No subir a producción sin ocultarla
+    const ABACUS_URL = 'https://api.abacus.ai/chat'; // Esto puede variar si hay un endpoint específico
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const text = document.getElementById('textInput').value;
+    const sendBtn = document.getElementById('send-btn');
+    const userInput = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
 
-      const response = await fetch('/api/voice', {
+    sendBtn.addEventListener('click', async () => {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      addMessage('user', message);
+      userInput.value = '';
+
+      const response = await fetch(ABACUS_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text })
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${ABACUS_API_KEY}`
+        },
+        body: JSON.stringify({
+          inputText: message,
+          chatHistory: [] // opcional: podés agregar historial acá
+        })
       });
 
-      if (!response.ok) {
-        alert("Error al generar la voz.");
-        return;
-      }
-
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      audio.src = url;
-      audio.play();
+      const data = await response.json();
+      const reply = data?.output || 'No entendí, ¿podés repetir?';
+      addMessage('bot', reply);
     });
+
+    function addMessage(sender, text) {
+      const bubble = document.createElement('div');
+      bubble.className = `message ${sender}`;
+      bubble.textContent = text;
+      chatBox.appendChild(bubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
   </script>
 </body>
 </html>
