@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>SpanishXP Voice</title>
+</head>
+<body>
+  <h1>¡Bienvenido a SpanishXP Voice!</h1>
+  <p>Tu asistente de español con voz clonada ya está en camino...</p>
+
+  <form id="voiceForm">
+    <input type="text" id="textInput" placeholder="Escribí algo..." required />
+    <button type="submit">Reproducir</button>
+  </form>
+
+  <audio id="audioPlayer" controls></audio>
+
+  <script>
+    const form = document.getElementById('voiceForm');
+    const audio = document.getElementById('audioPlayer');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = document.getElementById('textInput').value;
+
+      const response = await fetch('/api/voice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+
+      if (!response.ok) {
+        alert("Error al generar la voz.");
+        return;
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      audio.src = url;
+      audio.play();
+    });
+  </script>
+</body>
+</html>
