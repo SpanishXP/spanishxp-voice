@@ -1,145 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpanishXP Voice</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    .top-half {
-      background: url('uritorco.jpg') no-repeat center center/cover;
-      height: 50vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-    .top-half::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-    .top-half * {
-      position: relative;
-      z-index: 2;
-    }
-    .bottom-half {
-      background-color: #6CACE4;
-      padding: 2rem;
-      color: #000;
-    }
-    .avatar {
-      width: 100px;
-      height: auto;
-      border-radius: 50%;
-      border: 3px solid white;
-    }
-    .video-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .video-grid iframe {
-      width: 48%;
-      height: 200px;
-      border: none;
-    }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .social-links a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      color: #0046D5;
-    }
-    .contact-section {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .contact-section a {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #25D366;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    .control-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpanishXP Voice Teacher</title>
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-  <div class="top-half">
-    <img src="avatar.png" alt="Avatar Germán" class="avatar">
-    <h1>SpanishXP Voice</h1>
-    <p>Experience, Platform, Power... por el Pela 😉</p>
-  </div>
+  <header>
+    <img src="./assets/avatar.png" alt="Avatar de Germán" class="avatar" />
+    <img src="./assets/logo-spanishxp.png" alt="Logo SpanishXP" class="logo" />
+  </header>
 
-  <div class="bottom-half">
-    <section class="contact-section">
-      <h2>Clases online, materiales exclusivos y un asistente inteligente que te ayuda a practicar</h2>
-      <a href="https://wa.me/5492995896138?text=Hola+Pela,+quiero+saber+m%C3%A1s+sobre+SpanishXP+%F0%9F%91%8B" target="_blank">🟢💬 Hablá con el Pela</a>
+  <main>
+    <section class="intro">
+      <p>
+        Soy Germán, fundador de SpanishXP, un proyecto independiente y creativo nacido en Argentina. Tengo formación en filosofía y soy técnico electricista con experiencia en el rubro industrial, pero también un apasionado por el lenguaje, la cultura y la tecnología aplicada a la educación.
+      </p>
+      <p>
+        SpanishXP es una plataforma en crecimiento dedicada a enseñar español a extranjeros de forma auténtica, cultural y sin chamuyo: desde el idioma real que se habla en la calle hasta expresiones cotidianas, regionales, literatura, música, cine, humor, política y filosofía, con una fuerte impronta cordobesa. No me interesa un enfoque académico tradicional, sino generar experiencias de inmersión lingüística reales, entretenidas y significativas.
+      </p>
+      <button onclick="document.getElementById('sobre-mi-audio').play()">🔊 Escuchar sobre mí</button>
+      <audio id="sobre-mi-audio" src="./public/sobre-mi.mp3"></audio>
     </section>
 
-    <section>
-      <h2>Sobre mí</h2>
-      <p>Soy Germán, fundador de SpanishXP, un proyecto independiente y creativo nacido en Argentina. Tengo formación en filosofía y soy técnico electricista con experiencia en el rubro industrial, pero también un apasionado por el lenguaje, la cultura y la tecnología aplicada a la educación.</p>
-      <p>SpanishXP es una plataforma en crecimiento dedicada a enseñar español a extranjeros de forma auténtica, cultural y sin chamuyo: desde el idioma real que se habla en la calle hasta expresiones cotidianas, regionales, literatura, música, cine, humor, política y filosofía, con una fuerte impronta cordobesa. No me interesa un enfoque académico tradicional, sino generar experiencias de inmersión lingüística reales, entretenidas y significativas.</p>
-      <button onclick="leerSobreMi()">🔊 Escuchar</button>
+    <section class="chat-interface">
+      <div id="chat-container">
+        <div id="chat-box"></div>
+        <div class="input-row">
+          <input type="text" id="user-input" placeholder="Escribí o hablá..." />
+          <button id="voice-btn">🎤</button>
+          <button id="send-btn">Enviar</button>
+        </div>
+      </div>
     </section>
 
-    <section class="video-grid">
-      <iframe src="https://www.youtube.com/embed/mdwX88dltXg" title="Inicio del proyecto SpanishXP" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/S4KvI-bsWFo" title="Julio Cortázar y la R" allowfullscreen></iframe>
+    <section class="extras">
+      <p>SpanishXP — Experience, Platform, Power... por el Pela 😉</p>
     </section>
+  </main>
 
-    <div class="control-buttons">
-      <button>🎙️ Micrófono</button>
-      <button>🔊 Parlante</button>
-      <button>👐 Manos libres</button>
-      <button>🌐 English Teacher</button>
-    </div>
+  <footer>
+    <p>Clases online, materiales exclusivos y un asistente inteligente que te ayuda a practicar.</p>
+    <a href="https://wa.me/5492995896138" target="_blank">💬 Hablá con el Pela</a>
+  </footer>
 
-    <div class="social-links">
-      <a href="https://www.instagram.com/spanishxpela" target="_blank">📸</a>
-      <a href="https://www.tiktok.com/@spanishxpela" target="_blank">🎵</a>
-      <a href="https://www.youtube.com/channel/UCsOYMeI-VrJki1avnhHo7kw" target="_blank">▶️</a>
-    </div>
-  </div>
-
-  <script>
-    function leerSobreMi() {
-      const texto = `Soy Germán, fundador de SpanishXP, un proyecto independiente y creativo nacido en Argentina. Tengo formación en filosofía y soy técnico electricista con experiencia en el rubro industrial, pero también un apasionado por el lenguaje, la cultura y la tecnología aplicada a la educación. SpanishXP es una plataforma en crecimiento dedicada a enseñar español a extranjeros de forma auténtica, cultural y sin chamuyo...`;
-      fetch('/api/voice', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: texto })
-      })
-        .then(res => res.blob())
-        .then(blob => {
-          const audio = new Audio(URL.createObjectURL(blob));
-          audio.play();
-        });
-    }
-  </script>
+  <script src="./js/app.js"></script>
 </body>
 </html>
