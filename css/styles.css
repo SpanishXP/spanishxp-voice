@@ -1,56 +1,94 @@
+
+/* --- General layout --- */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), #d6ecf8),
-              url("../assets/uritorco.jpg") no-repeat top center;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), #d6ecf8),
+              url('../assets/uritorco.jpg') no-repeat top center;
   background-size: cover;
   color: #003366;
 }
 
-/* Íconos de idioma */
+/* --- Header: Avatar y logo --- */
+header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* --- Texto central --- */
+.intro {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  width: 70%;
+  border-radius: 10px;
+}
+
+/* --- Botón de voz --- */
+button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* --- Campo de texto y envío --- */
+input[type="text"] {
+  padding: 6px;
+  margin-right: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* --- Íconos de redes sociales --- */
+.social-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.social-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #003366;
+  margin-left: 12px;
+}
+
+/* --- Botones de idioma --- */
 .lang-switch {
   position: absolute;
   top: 10px;
   right: 10px;
+  display: flex;
+  gap: 8px;
 }
 
 .lang-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: none;
-  margin: 0 5px;
   cursor: pointer;
-}
-
-/* Íconos sociales */
-.social-icons {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.social-icon {
-  width: 32px;
-  height: 32px;
-}
-
-/* Estilos generales */
-.avatar {
-  width: 80px;
-  border-radius: 50%;
-}
-
-.logo {
-  width: 160px;
-  margin-left: 20px;
-}
-
-.intro {
-  padding: 1rem 2rem;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  max-width: 800px;
-  margin: 2rem auto;
-  font-size: 1.1rem;
 }
