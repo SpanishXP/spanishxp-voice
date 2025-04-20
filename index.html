@@ -7,16 +7,16 @@
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-<div class="lang-switch">
-  <button onclick="setLanguage('es')">
-    <img src="./assets/flag-arg.png" alt="Español" class="lang-icon" />
-  </button>
-  <button onclick="setLanguage('en')">
-    <img src="./assets/flag-uk.png" alt="English" class="lang-icon" />
-  </button>
-</div>
+  <div class="lang-switch">
+    <button onclick="setLanguage('es')">
+      <img src="./assets/flag-arg.png" alt="Español" class="lang-icon" />
+    </button>
+    <button onclick="setLanguage('en')">
+      <img src="./assets/flag-uk.png" alt="English" class="lang-icon" />
+    </button>
+  </div>
 
-  <header>
+  <header class="centered-header">
     <img src="./assets/avatar.png" alt="Avatar de Germán" class="avatar" />
     <img src="./assets/logo-spanishxp.png" alt="Logo SpanishXP" class="logo" />
   </header>
@@ -29,29 +29,37 @@
       <p>
         SpanishXP es una plataforma en crecimiento dedicada a enseñar español a extranjeros de forma auténtica, cultural y sin chamuyo: desde el idioma real que se habla en la calle hasta expresiones cotidianas, regionales, literatura, música, cine, humor, política y filosofía, con una fuerte impronta cordobesa. No me interesa un enfoque académico tradicional, sino generar experiencias de inmersión lingüística reales, entretenidas y significativas.
       </p>
-      <button onclick="toggleAudio()">🔊 Escuchar sobre mí</button>
+      <button onclick="toggleAudio()">
+        🔊 Escuchar sobre mí
+      </button>
       <audio id="sobre-mi-audio" src="./public/sobre-mi.mp3"></audio>
     </section>
-
-    <section class="chat-interface">
-      <div id="chat-container">
-        <div id="chat-box"></div>
-        <div class="input-row">
-          <input type="text" id="user-input" placeholder="Escribí o hablá..." />
-          <button id="voice-btn">🎤</button>
-          <button id="send-btn">Enviar</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="extras">
-      <p>SpanishXP — Experience, Platform, Power... por el Pela 😉</p>
+    <section class="input-section">
+      <input type="text" placeholder="Escribí o hablá..." />
+      <button>🎤</button>
+      <button>Enviar</button>
     </section>
   </main>
 
   <footer>
+    <p class="highlighted">SpanishXP — Experience, Platform, Power... por el Pela 😉</p>
     <p>Clases online, materiales exclusivos y un asistente inteligente que te ayuda a practicar.</p>
-    </footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/spanishxpela/" target="_blank">
+        <img src="./assets/icon-instagram.png" alt="Instagram" class="social-icon" />
+      </a>
+      <a href="https://www.tiktok.com/@spanishxpela" target="_blank">
+        <img src="./assets/icon-tiktok.png" alt="TikTok" class="social-icon" />
+      </a>
+      <a href="https://www.youtube.com/channel/UCsOYMeI-VrJki1avnhHo7kw" target="_blank">
+        <img src="./assets/icon-youtube.png" alt="YouTube" class="social-icon" />
+      </a>
+      <a href="https://wa.me/5492995896138" target="_blank">
+        <img src="./assets/icon-whatsapp.png" alt="WhatsApp" class="social-icon" />
+      </a>
+      <span class="social-text">Escribime y te cuento un poco más</span>
+    </div>
+  </footer>
 
   <script>
     const audio = document.getElementById('sobre-mi-audio');
@@ -73,22 +81,5 @@
     }
   </script>
   <script src="./js/app.js"></script>
-<div class="social-section">
-  <a href="https://www.instagram.com/spanishxpela/" target="_blank">
-    <img src="./assets/icon-instagram.png" alt="Instagram" class="social-icon" />
-  </a>
-  <a href="https://www.tiktok.com/@spanishxpela" target="_blank">
-    <img src="./assets/icon-tiktok.png" alt="TikTok" class="social-icon" />
-  </a>
-  <a href="https://www.youtube.com/channel/UCsOYMeI-VrJki1avnhHo7kw" target="_blank">
-    <img src="./assets/icon-youtube.png" alt="YouTube" class="social-icon" />
-  </a>
-  <a href="https://wa.me/5492995896138" target="_blank">
-    <img src="./assets/icon-whatsapp.png" alt="WhatsApp" class="social-icon" />
-  </a>
-  <span class="social-text">Escribime y te cuento un poco más</span>
-</div>
-
-
 </body>
 </html>

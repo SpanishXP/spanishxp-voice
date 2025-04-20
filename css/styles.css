@@ -1,25 +1,24 @@
-
 /* --- General layout --- */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), #d6ecf8),
-              url("../assets/uritorco.jpg") no-repeat top center;
+    url("../assets/uritorco.jpg") no-repeat top center;
   background-size: cover;
   color: #003366;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
 }
 
+/* --- Header: Avatar y logo --- */
 header {
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .avatar {
@@ -30,14 +29,45 @@ header {
 
 .logo {
   height: 80px;
-  border-radius: 12px;
+  border-radius: 20px;
 }
 
-/* --- Language Switch --- */
+/* --- Main text container --- */
+.intro {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1.5rem;
+  border-radius: 15px;
+  max-width: 60%;
+  text-align: left;
+  margin: 1rem 0;
+}
+
+/* --- Audio controls --- */
+button {
+  margin-top: 10px;
+  padding: 6px 12px;
+}
+
+/* --- Social Icons --- */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* --- Language buttons --- */
 .lang-switch {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 15px;
+  right: 15px;
   display: flex;
   gap: 0.5rem;
 }
@@ -50,46 +80,9 @@ header {
   cursor: pointer;
 }
 
-/* --- Intro Text --- */
-.intro {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
-  margin-top: 1rem;
-  border-radius: 12px;
-  max-width: 800px;
-  text-align: left;
-}
-
-/* --- Social Icons --- */
-.social-icons {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.social-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* --- WhatsApp Text --- */
+/* --- WhatsApp text --- */
 .whatsapp-text {
-  margin-left: 0.5rem;
-  font-size: 0.9rem;
-  color: #003366;
-}
-
-/* --- Input Section --- */
-input[type="text"] {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 0.2rem;
 }
