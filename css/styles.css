@@ -9,16 +9,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-/* --- Header: Avatar y logo --- */
-header {
-  padding: 1rem;
+/* --- Header: Avatar y Logo --- */
+.logo-header {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .avatar {
@@ -32,28 +34,70 @@ header {
   border-radius: 20px;
 }
 
-/* --- Main text container --- */
+/* --- Language buttons --- */
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+  background: transparent;
+}
+
+/* --- Intro Text Section --- */
 .intro {
-  background-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   padding: 1.5rem;
-  border-radius: 15px;
-  max-width: 60%;
-  text-align: left;
-  margin: 1rem 0;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  margin-bottom: 1rem;
 }
 
-/* --- Audio controls --- */
 button {
-  margin-top: 10px;
-  padding: 6px 12px;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
-/* --- Social Icons --- */
+.audio-icon {
+  margin-right: 0.5rem;
+}
+
+/* --- Input Section --- */
+.input-section {
+  margin-bottom: 1rem;
+}
+
+/* --- Footer Line --- */
+.footer-line {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #003366;
+}
+
+/* --- Social Icons Section --- */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .social-icons {
   display: flex;
+  gap: 0.8rem;
   justify-content: center;
-  gap: 1.2rem;
-  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .social-icon {
@@ -63,26 +107,7 @@ button {
   object-fit: cover;
 }
 
-/* --- Language buttons --- */
-.lang-switch {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.lang-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-/* --- WhatsApp text --- */
-.whatsapp-text {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 0.2rem;
+.social-caption {
+  font-size: 0.9rem;
+  color: #003366;
 }
