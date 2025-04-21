@@ -34,10 +34,15 @@
       </button>
       <audio id="sobre-mi-audio" src="./public/sobre-mi.mp3"></audio>
     </section>
+
     <section class="input-section">
-      <input type="text" placeholder="Escribí o hablá..." />
-      <button>🎤</button>
-      <button>Enviar</button>
+      <input type="text" id="userInput" placeholder="Escribí tu pregunta..." />
+      <button onclick="enviarPregunta()">Enviar</button>
+    </section>
+
+    <section class="response-section">
+      <p><strong>Respuesta del asistente:</strong></p>
+      <div id="respuesta"></div>
     </section>
   </main>
 
@@ -57,7 +62,6 @@
       <a href="https://wa.me/5492995896138" target="_blank">
         <img src="./assets/icon-whatsapp.png" alt="WhatsApp" class="social-icon" />
       </a>
-
     </div>
   </footer>
 
@@ -79,7 +83,24 @@
         wasPausedManually = true;
       }
     }
+
+    async function enviarPregunta() {
+      const input = document.getElementById('userInput').value;
+      const respuesta = document.getElementById('respuesta');
+      respuesta.innerText = "Pensando...";
+
+      const res = await fetch("https://api.abacus.ai/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer s2_72f2032cfb67483d9c3193d126262d6b"
+        },
+        body: JSON.stringify({ prompt: input })
+      });
+
+      const data = await res.json();
+      respuesta.innerText = data.completion || "No hubo respuesta.";
+    }
   </script>
-  <script src="./js/app.js"></script>
 </body>
 </html>
